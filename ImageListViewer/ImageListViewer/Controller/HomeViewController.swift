@@ -28,15 +28,31 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func fetchData(){
         NetworkManager.shared().processRequest(completion: {
             [weak self] (countrydata,response,error) in
-            
+            if let error = error{
+                let alertController = UIAlertController(title: "Error", message: error.description, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .destructive) { (action:UIAlertAction) in
+                }
+                
+                
+                alertController.addAction(action)
+                self?.present(alertController, animated: true, completion: nil)
+                
+                
+                
+            }
+            else{
             DispatchQueue.main.async {
+                
+                if let _ = countrydata{
                 
                 if let countryDetail = countrydata?.rows{
                     self?.countryDetailArray = countryDetail
                 }
                 self?.navigationItem.title = countrydata?.title
                 self?.collectionview.reloadData()
+                }
                 
+            }
             }
             
         })
