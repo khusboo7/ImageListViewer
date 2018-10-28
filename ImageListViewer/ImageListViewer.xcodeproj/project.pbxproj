@@ -20,6 +20,7 @@
 		9B241E8221863F3D00566DB3 /* ImageListViewerNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E8121863F3D00566DB3 /* ImageListViewerNetworkTest.swift */; };
 		9B241E8C2186495700566DB3 /* MockUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E8B2186495700566DB3 /* MockUrlSession.swift */; };
 		9B241E8E21864F8000566DB3 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B241E8D21864F8000566DB3 /* response.json */; };
+		9B241E902186645400566DB3 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E8F2186645400566DB3 /* CustomError.swift */; };
 		D7BC0E9579E2AE01D2029B74 /* Pods_ImageListViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09917217523FBEB43C90BC82 /* Pods_ImageListViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		9B241E8321863F3E00566DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B241E8B2186495700566DB3 /* MockUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSession.swift; sourceTree = "<group>"; };
 		9B241E8D21864F8000566DB3 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
+		9B241E8F2186645400566DB3 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		F3E45B3DF1A7671FF7EDF495 /* Pods-ImageListViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageListViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageListViewer/Pods-ImageListViewer.release.xcconfig"; sourceTree = "<group>"; };
 		F87C2F2926D96150E5BD7A8D /* Pods-ImageListViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageListViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageListViewerTests/Pods-ImageListViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				9B241E772185F5B000566DB3 /* NetworkManager.swift */,
+				9B241E8F2186645400566DB3 /* CustomError.swift */,
 			);
 			path = BusinessLayer;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B241E902186645400566DB3 /* CustomError.swift in Sources */,
 				9B241E8C2186495700566DB3 /* MockUrlSession.swift in Sources */,
 				9B241E67217F98B900566DB3 /* ImageCollectionViewCell.swift in Sources */,
 				9B241E752184DD5000566DB3 /* CountryDetail.swift in Sources */,

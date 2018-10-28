@@ -77,12 +77,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
                 }
                 else{
-                self.imageView.image = UIImage(named: "placeholder")
                 NetworkManager.shared().downloadImage(with: imageUrl, onCompletion: {
                     [weak self] responseData in
                     if let data = responseData{
                         self?.imageHeightConstraint.constant = (self?.imageViewDefaultHeight)!
-                        self?.contentview.layoutIfNeeded()
 
                         self?.imageView.image = UIImage(data: data)
                         if let image = self?.imageView.image{
