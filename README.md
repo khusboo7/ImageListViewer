@@ -8,6 +8,6 @@ Alamofire to downloadImage from the imageUrl
 
 URlSession to fetch data from the URL and codable model to decode Json
 
-This project uses Swift 4 version. It support from ios 9.0 to the latest version
+This project uses Swift 4 version. It support from ios 10.0 to the latest version
 
 Screen shot of the HomePage is attached in the screenshot folder
