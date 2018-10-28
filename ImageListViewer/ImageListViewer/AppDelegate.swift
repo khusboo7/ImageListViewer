@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ImageListViewer
 //
-//  Created by Techjini on 23/10/18.
+//  Created by khusboo on 23/10/18.
 //  Copyright © 2018 Khusboo. All rights reserved.
 //
 
@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let homeViewController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        //homeViewController.view.backgroundColor = UIColor.red
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
 
