@@ -13,7 +13,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var collectionview : UICollectionView!
     var cellId = "Cell"
     
-    var countryDetailArray : [CountryDetail]?
+    var countryDetailArray = [CountryDetail]()
 
     
 
@@ -81,13 +81,13 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return countryDetailArray?.count ?? 0
+        return countryDetailArray.count 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ImageCollectionViewCell
         
-        cell.countryDetail = countryDetailArray?[indexPath.item]
+        cell.countryDetail = countryDetailArray[indexPath.item]
         return cell
     }
     
