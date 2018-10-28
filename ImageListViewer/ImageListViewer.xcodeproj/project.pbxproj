@@ -17,11 +17,21 @@
 		9B241E752184DD5000566DB3 /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E742184DD5000566DB3 /* CountryDetail.swift */; };
 		9B241E782185F5B000566DB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E772185F5B000566DB3 /* NetworkManager.swift */; };
 		9B241E7A2185FC8400566DB3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9B241E792185FC8400566DB3 /* Podfile */; };
+		9B241E8221863F3D00566DB3 /* ImageListViewerNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E8121863F3D00566DB3 /* ImageListViewerNetworkTest.swift */; };
+		9B241E8C2186495700566DB3 /* MockUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B241E8B2186495700566DB3 /* MockUrlSession.swift */; };
+		9B241E8E21864F8000566DB3 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B241E8D21864F8000566DB3 /* response.json */; };
 		D7BC0E9579E2AE01D2029B74 /* Pods_ImageListViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09917217523FBEB43C90BC82 /* Pods_ImageListViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9B241E53217F852E00566DB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B241E36217F852900566DB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B241E3D217F852900566DB3;
+			remoteInfo = ImageListViewer;
+		};
+		9B241E8421863F3E00566DB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9B241E36217F852900566DB3 /* Project object */;
 			proxyType = 1;
@@ -48,6 +58,11 @@
 		9B241E742184DD5000566DB3 /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
 		9B241E772185F5B000566DB3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9B241E792185FC8400566DB3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		9B241E7F21863F3D00566DB3 /* ImageListViewerNetworkTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageListViewerNetworkTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B241E8121863F3D00566DB3 /* ImageListViewerNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewerNetworkTest.swift; sourceTree = "<group>"; };
+		9B241E8321863F3E00566DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B241E8B2186495700566DB3 /* MockUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSession.swift; sourceTree = "<group>"; };
+		9B241E8D21864F8000566DB3 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		F3E45B3DF1A7671FF7EDF495 /* Pods-ImageListViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageListViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageListViewer/Pods-ImageListViewer.release.xcconfig"; sourceTree = "<group>"; };
 		F87C2F2926D96150E5BD7A8D /* Pods-ImageListViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageListViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageListViewerTests/Pods-ImageListViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +81,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C526E790A38ABB2C727E40D /* Pods_ImageListViewerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B241E7C21863F3D00566DB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +119,7 @@
 			children = (
 				9B241E40217F852900566DB3 /* ImageListViewer */,
 				9B241E55217F852E00566DB3 /* ImageListViewerTests */,
+				9B241E8021863F3D00566DB3 /* ImageListViewerNetworkTest */,
 				9B241E3F217F852900566DB3 /* Products */,
 				835584C21F40F0962D2253A2 /* Pods */,
 				79F363D09D0BBA10F1B0344C /* Frameworks */,
@@ -108,6 +131,7 @@
 			children = (
 				9B241E3E217F852900566DB3 /* ImageListViewer.app */,
 				9B241E52217F852E00566DB3 /* ImageListViewerTests.xctest */,
+				9B241E7F21863F3D00566DB3 /* ImageListViewerNetworkTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +148,7 @@
 				9B241E48217F852E00566DB3 /* Assets.xcassets */,
 				9B241E4A217F852E00566DB3 /* LaunchScreen.storyboard */,
 				9B241E4D217F852E00566DB3 /* Info.plist */,
+				9B241E8B2186495700566DB3 /* MockUrlSession.swift */,
 			);
 			path = ImageListViewer;
 			sourceTree = "<group>";
@@ -131,6 +156,7 @@
 		9B241E55217F852E00566DB3 /* ImageListViewerTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B241E8D21864F8000566DB3 /* response.json */,
 				9B241E56217F852E00566DB3 /* ImageListViewerTests.swift */,
 				9B241E58217F852E00566DB3 /* Info.plist */,
 			);
@@ -167,6 +193,15 @@
 				9B241E772185F5B000566DB3 /* NetworkManager.swift */,
 			);
 			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		9B241E8021863F3D00566DB3 /* ImageListViewerNetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				9B241E8121863F3D00566DB3 /* ImageListViewerNetworkTest.swift */,
+				9B241E8321863F3E00566DB3 /* Info.plist */,
+			);
+			path = ImageListViewerNetworkTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +245,24 @@
 			productReference = 9B241E52217F852E00566DB3 /* ImageListViewerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9B241E7E21863F3D00566DB3 /* ImageListViewerNetworkTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B241E8821863F3E00566DB3 /* Build configuration list for PBXNativeTarget "ImageListViewerNetworkTest" */;
+			buildPhases = (
+				9B241E7B21863F3D00566DB3 /* Sources */,
+				9B241E7C21863F3D00566DB3 /* Frameworks */,
+				9B241E7D21863F3D00566DB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B241E8521863F3E00566DB3 /* PBXTargetDependency */,
+			);
+			name = ImageListViewerNetworkTest;
+			productName = ImageListViewerNetworkTest;
+			productReference = 9B241E7F21863F3D00566DB3 /* ImageListViewerNetworkTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,6 +277,10 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					9B241E51217F852E00566DB3 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 9B241E3D217F852900566DB3;
+					};
+					9B241E7E21863F3D00566DB3 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 9B241E3D217F852900566DB3;
 					};
@@ -244,6 +301,7 @@
 			targets = (
 				9B241E3D217F852900566DB3 /* ImageListViewer */,
 				9B241E51217F852E00566DB3 /* ImageListViewerTests */,
+				9B241E7E21863F3D00566DB3 /* ImageListViewerNetworkTest */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +321,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B241E8E21864F8000566DB3 /* response.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B241E7D21863F3D00566DB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,15 +340,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ImageListViewerTests-checkManifestLockResult.txt",
 			);
@@ -296,15 +358,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ImageListViewer/Pods-ImageListViewer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
@@ -318,15 +376,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ImageListViewer-checkManifestLockResult.txt",
 			);
@@ -342,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B241E8C2186495700566DB3 /* MockUrlSession.swift in Sources */,
 				9B241E67217F98B900566DB3 /* ImageCollectionViewCell.swift in Sources */,
 				9B241E752184DD5000566DB3 /* CountryDetail.swift in Sources */,
 				9B241E782185F5B000566DB3 /* NetworkManager.swift in Sources */,
@@ -358,6 +413,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B241E7B21863F3D00566DB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B241E8221863F3D00566DB3 /* ImageListViewerNetworkTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -365,6 +428,11 @@
 			isa = PBXTargetDependency;
 			target = 9B241E3D217F852900566DB3 /* ImageListViewer */;
 			targetProxy = 9B241E53217F852E00566DB3 /* PBXContainerItemProxy */;
+		};
+		9B241E8521863F3E00566DB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B241E3D217F852900566DB3 /* ImageListViewer */;
+			targetProxy = 9B241E8421863F3E00566DB3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -582,6 +650,46 @@
 			};
 			name = Release;
 		};
+		9B241E8621863F3E00566DB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F36L9WM272;
+				INFOPLIST_FILE = ImageListViewerNetworkTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imagelistviewercom.ImageListViewerNetworkTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageListViewer.app/ImageListViewer";
+			};
+			name = Debug;
+		};
+		9B241E8721863F3E00566DB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F36L9WM272;
+				INFOPLIST_FILE = ImageListViewerNetworkTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imagelistviewercom.ImageListViewerNetworkTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageListViewer.app/ImageListViewer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -608,6 +716,15 @@
 			buildConfigurations = (
 				9B241E5F217F852E00566DB3 /* Debug */,
 				9B241E60217F852E00566DB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B241E8821863F3E00566DB3 /* Build configuration list for PBXNativeTarget "ImageListViewerNetworkTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B241E8621863F3E00566DB3 /* Debug */,
+				9B241E8721863F3E00566DB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

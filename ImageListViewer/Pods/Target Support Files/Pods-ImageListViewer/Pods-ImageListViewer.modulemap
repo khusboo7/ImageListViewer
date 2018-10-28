@@ -1,0 +1,6 @@
+framework module Pods_ImageListViewer {
+  umbrella header "Pods-ImageListViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}
