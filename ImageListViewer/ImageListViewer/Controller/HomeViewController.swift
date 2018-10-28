@@ -20,6 +20,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: UIBarButtonItemStyle.plain, target: self, action:#selector(refreshAction))
         fetchData()
     }
     
@@ -39,6 +40,10 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             }
             
         })
+    }
+    
+    @objc func refreshAction(){
+        fetchData()
     }
     
     
