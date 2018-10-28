@@ -19,34 +19,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.scrollDirection = .vertical
-        collectionview = UICollectionView(frame:self.view.frame, collectionViewLayout: layout)
-        collectionview.dataSource = self
-        collectionview.delegate = self
-        layout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
-
-        collectionview.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        collectionview.backgroundColor = UIColor.white
-        collectionview.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(collectionview)
-        
-        self.collectionview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.collectionview.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        self.collectionview.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
-        self.collectionview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-
+        setUpCollectionView()
         fetchData()
-        
-       
-
-        
-        
     }
     
+    // Fetch the data from the api and reload the collectionView
     func fetchData(){
         NetworkManager.shared().processRequest(completion: {
             [weak self] (countrydata,response,error) in
@@ -63,12 +40,39 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             
         })
     }
+    
+    
+    //Create the collectionView and constraint to the collectionView
+    func setUpCollectionView(){
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.scrollDirection = .vertical
+        collectionview = UICollectionView(frame:self.view.frame, collectionViewLayout: layout)
+        collectionview.dataSource = self
+        collectionview.delegate = self
+        layout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
+        
+        collectionview.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionview.backgroundColor = UIColor.white
+        collectionview.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(collectionview)
+        
+        self.collectionview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.collectionview.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        self.collectionview.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.collectionview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     
     }
+    
+    //MARK: - CollectionView Delegate Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -79,21 +83,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ImageCollectionViewCell
         
         cell.countryDetail = countryDetailArray?[indexPath.item]
-        //cell.imageView.backgroundColor = UIColor.red
         return cell
     }
     
 
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

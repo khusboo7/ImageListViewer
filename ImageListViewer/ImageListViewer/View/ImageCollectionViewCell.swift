@@ -115,26 +115,28 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addConstraintToViews()
+        
+    }
+    
+    //Add constraint to the views of the cell
+    func addConstraintToViews(){
+        
         addSubview(self.contentview)
         self.contentview.translatesAutoresizingMaskIntoConstraints = false
-
+        
         
         contentview.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
         contentview.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         contentview.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         contentview.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-
+        
         
         let screenwidth = UIScreen.main.bounds.size.width
         self.contentview.widthAnchor.constraint(equalToConstant: screenwidth - 40).isActive = true
 
         
         
-        addConstraintToViews()
-        
-    }
-    
-    func addConstraintToViews(){
         self.contentview.addSubview(imageView)
         self.contentview.addSubview(titleLabel)
         self.contentview.addSubview(descriptionLabel)
@@ -161,7 +163,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         
         separatorView.leadingAnchor.constraint(equalTo: self.contentview.leadingAnchor, constant: 0).isActive = true
         separatorView.trailingAnchor.constraint(equalTo: self.contentview.trailingAnchor, constant: 0).isActive = true
-//        separatorView.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 2).isActive = true
         separatorView.bottomAnchor.constraint(equalTo: self.contentview.bottomAnchor, constant: 10).isActive = true
         separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
