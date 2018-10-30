@@ -12,7 +12,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     var collectionview : UICollectionView!
     var cellId = "Cell"
-    
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    let cellMaxPadding : CGFloat = 150.0
+    let cellMinPadding : CGFloat = 50.0
+    let contentInset : CGFloat = 64.0
+
+
     var countryDetailArray = [CountryDetail]()
 
     
@@ -47,6 +52,16 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 
                 if let countryDetail = countrydata?.rows{
                     self?.countryDetailArray = countryDetail
+                    self?.countryDetailArray = countryDetail.filter({ (model) -> Bool in
+                        if model.title == nil &&  model.description == nil && model.imageHref == nil {
+                            return false
+                        }
+                        else{
+                            return true
+                        }
+                        
+                    })
+                    
                 }
                 self?.navigationItem.title = countrydata?.title
                 self?.collectionview.reloadData()
@@ -66,13 +81,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     //Create the collectionView and constraint to the collectionView
     func setUpCollectionView(){
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.scrollDirection = .vertical
         collectionview = UICollectionView(frame:self.view.frame, collectionViewLayout: layout)
         collectionview.dataSource = self
         collectionview.delegate = self
-        layout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
         
         collectionview.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionview.backgroundColor = UIColor.white
@@ -81,10 +94,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         self.view.addSubview(collectionview)
         
         self.collectionview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.collectionview.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-        self.collectionview.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
         self.collectionview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.collectionview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.collectionview.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,6 +119,41 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         cell.countryDetail = countryDetailArray[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = self.view.frame.size.width
+        let countryDetail = countryDetailArray[indexPath.item]
+        var titleHeight : CGFloat = 0.0
+        var descriptionHeight : CGFloat = 0.0
+        var cellHeight : CGFloat = 0.0
+
+        if let titleText = countryDetail.title{
+        titleHeight = getHeightForLable(labelWidth: screenWidth - cellMinPadding , labelText: titleText, labelFont: UIFont.boldSystemFont(ofSize: 14))
+        }
+        
+        if let descriptionText = countryDetail.description{
+            descriptionHeight = getHeightForLable(labelWidth: screenWidth - cellMinPadding , labelText: descriptionText, labelFont: UIFont.systemFont(ofSize: 12))
+        }
+        if let _ = countryDetail.imageHref{
+            cellHeight = titleHeight + descriptionHeight + cellMaxPadding
+        }
+        else{
+            if titleHeight > 0.0 && descriptionHeight > 0.0{
+            cellHeight = titleHeight + descriptionHeight + cellMinPadding
+            }
+        }
+        return CGSize(width: self.view.frame.size.width - cellMinPadding, height: cellHeight)
+    }
+    
+    //Calculate Label height
+    func getHeightForLable(labelWidth: CGFloat, numberOfLines: Int = 0, labelText: String, labelFont: UIFont) -> CGFloat {
+        let tempLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
+        tempLabel.numberOfLines = numberOfLines
+        tempLabel.text = labelText
+        tempLabel.font = labelFont
+        tempLabel.sizeToFit()
+        return tempLabel.frame.height
     }
     
 

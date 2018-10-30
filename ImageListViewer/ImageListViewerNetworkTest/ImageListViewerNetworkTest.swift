@@ -29,11 +29,10 @@ class ImageListViewerNetworkTest: XCTestCase {
     
     func testvalidcallToProcessRequestAPIGetsSuccessStatus200(){
         // given
-        let url = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")
         let promise = expectation(description: "Status code: 200")
         
         // when
-        let dataTask = sessionUrlUnderTest.dataTask(with: url!) { data, response, error in
+        NetworkManager.shared().processRequest(completion: { data, response, error in
             // then
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
@@ -45,8 +44,8 @@ class ImageListViewerNetworkTest: XCTestCase {
                     XCTFail("Status code: \(statusCode)")
                 }
             }
-        }
-        dataTask.resume()
+        })
+
         waitForExpectations(timeout: 5, handler: nil)
     }
     

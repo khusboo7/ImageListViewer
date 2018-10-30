@@ -14,7 +14,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     var imageHeightConstraint : NSLayoutConstraint!
     let imageCache = NSCache<NSString,UIImage>()
     let imageViewDefaultHeight : CGFloat = 100.0
-
     
     let contentview : UIView = {
     
@@ -43,7 +42,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -129,12 +128,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         contentview.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         contentview.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         
-        
-        let screenwidth = UIScreen.main.bounds.size.width
-        self.contentview.widthAnchor.constraint(equalToConstant: screenwidth - 40).isActive = true
-
-        
-        
         self.contentview.addSubview(imageView)
         self.contentview.addSubview(titleLabel)
         self.contentview.addSubview(descriptionLabel)
@@ -150,12 +143,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
         
         titleLabel.leadingAnchor.constraint(equalTo: self.contentview.leadingAnchor, constant: 8).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.contentview.trailingAnchor, constant: 0).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: self.contentview.trailingAnchor, constant: 8).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 8).isActive = true
 
 
         descriptionLabel.leadingAnchor.constraint(equalTo: self.contentview.leadingAnchor, constant: 8).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: self.contentview.trailingAnchor, constant: 0).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: self.contentview.trailingAnchor, constant: 8).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 8).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: self.contentview.bottomAnchor, constant: 0).isActive = true
         
@@ -179,7 +172,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = nil
     }
     
-   
+
     
 
     

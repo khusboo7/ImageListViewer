@@ -30,37 +30,42 @@ class NetworkManager{
     func processRequest(completion handler: @escaping ((Country?,URLResponse?,CustomError?) -> ())){
         
         if isInternetAvailable(){
-        guard let url = URL(string: requestURL) else {
-            let customError = CustomError(with: -1, title: "Error", desc: "Invalid URL")
-            handler(nil,nil,customError)
-            return
-            
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data else {
-                handler(nil,nil,error as? CustomError)
-                return
-                
-            }
-            
-            let responseStrInISOLatin = String(data: dataResponse, encoding: String.Encoding.isoLatin1)
-            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8) else {
-                let customError = CustomError(with: -1, title: "Error", desc: "Improper data format")
+            guard let url = URL(string: requestURL) else {
+                let customError = CustomError(with: -1, title: "Error", desc: "Invalid URL")
                 handler(nil,nil,customError)
                 return
-            }
-            do {
-                let countryData = try JSONDecoder().decode(Country.self, from: modifiedDataInUTF8Format)
-                handler(countryData,response,error as? CustomError)
                 
-                
-            } catch {
-                handler(nil,response,error as? CustomError)
-                print(error)
             }
             
-            }.resume()
+            Alamofire.request(url).response(completionHandler: {
+                response in
+                if response.response?.statusCode == 200{
+                    guard let dataResponse = response.data  else {
+                        handler(nil,nil,response.error as? CustomError)
+                        return
+                        
+                    }
+                    let responseStrInISOLatin = String(data: dataResponse, encoding: String.Encoding.isoLatin1)
+                    guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8) else {
+                        let customError = CustomError(with: -1, title: "Error", desc: "Improper data format")
+                        handler(nil,nil,customError)
+                        return
+                    }
+                    do {
+                        let countryData = try JSONDecoder().decode(Country.self, from: modifiedDataInUTF8Format)
+                        handler(countryData,response.response,response.error as? CustomError)
+                    }
+                    catch{
+                        handler(nil,response.response,response.error as? CustomError)
+                        print(error)
+                        
+                    }
+                }
+                else{
+                    handler(nil,response.response,response.error as? CustomError)
+                }
+            })
+        
         }
         else{
             let customError = CustomError(with: -1, title: "Error", desc: "The internet connection appears to be offline")
